@@ -1,0 +1,31 @@
+function generateNotes() {
+    let text = document.getElementById("inputText").value;
+
+    if (text.length < 20) {
+        alert("Enter more text!");
+        return;
+    }
+
+    // Simple summarization (first few sentences)
+    let sentences = text.split(".");
+    let summary = sentences.slice(0, 3).join(".") + ".";
+
+    document.getElementById("summary").innerText = summary;
+
+    // Keyword extraction
+    let words = text.toLowerCase().match(/\b\w+\b/g);
+    let freq = {};
+
+    words.forEach(word => {
+        if (word.length > 4) {
+            freq[word] = (freq[word] || 0) + 1;
+        }
+    });
+
+    let sorted = Object.entries(freq)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(item => item[0]);
+
+    document.getElementById("keywords").innerText = sorted.join(", ");
+}
