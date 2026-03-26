@@ -17,4 +17,12 @@ A web-based tool that converts long text into short notes and extracts keywords.
 - JavaScript
 
 ## 📸 Screenshots
-Add images here
+
+### 🏠 Home Page
+Displays the main interface of the application.
+
+### ⌨️ Input
+User enters required data into the form.
+
+### 📊 Output
+Processed result shown after submission.
