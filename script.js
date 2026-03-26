@@ -1,18 +1,18 @@
 function generateNotes() {
     let text = document.getElementById("inputText").value;
 
-    if (text.length < 20) {
-        alert("Enter more text!");
+    if (!text || text.trim().length < 20) {
+        alert("Please enter enough text!");
         return;
     }
 
-    // Simple summarization (first few sentences)
+    // Summary
     let sentences = text.split(".");
     let summary = sentences.slice(0, 3).join(".") + ".";
 
     document.getElementById("summary").innerText = summary;
 
-    // Keyword extraction
+    // Keywords
     let words = text.toLowerCase().match(/\b\w+\b/g);
     let freq = {};
 
